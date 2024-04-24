@@ -1,0 +1,2 @@
+package org.view.Validator;public class ValidarCantidad {
+}
