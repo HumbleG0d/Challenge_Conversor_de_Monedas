@@ -1,4 +1,4 @@
-package org.view.Principal;
+package org.view.Main;
 import org.view.View.Menu;
 import java.io.IOException;
 
