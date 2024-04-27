@@ -3,6 +3,8 @@ package org.view.View;
 import org.view.Logic.Converter;
 import org.view.Models.Data;
 import org.view.Core.Coins;
+import org.view.Validator.ValidarCantidad;
+
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -47,18 +49,22 @@ public class Menu {
     var moneda_origen = sc.nextLine().toLowerCase();
     System.out.println("Ingrese la moneda de destino: ");
     var moneda_destino = sc.nextLine().toLowerCase();
-    System.out.println("Ingrese la cantidad a convertir: ");
-    var cantidad = sc.nextDouble();
+
+    double cantidad = 0;
+    do {
+      System.out.println("Ingrese la cantidad a convertir: ");
+      cantidad = sc.nextDouble();
+    } while (!ValidarCantidad.validValue(cantidad));
 
     String currecy_code_origen = (String) data.getCurrencyCode().get(moneda_origen);
     double valor_moneda_origen = (double) data.getCoins().get(currecy_code_origen);
-    var coin_origen = new Coins(currecy_code_origen,valor_moneda_origen);
+    var coin_origen = new Coins(currecy_code_origen, valor_moneda_origen);
 
     String currecy_code_destino = (String) data.getCurrencyCode().get(moneda_destino);
     double valor_moneda_destino = (double) data.getCoins().get(currecy_code_destino);
-    var coin_destino = new Coins(currecy_code_destino , valor_moneda_destino);
+    var coin_destino = new Coins(currecy_code_destino, valor_moneda_destino);
 
-    double conversion =  conversor.convertir(cantidad,coin_destino.getValue(),coin_origen.getValue());
+    double conversion = conversor.convertir(cantidad, coin_destino.getValue(), coin_origen.getValue());
 
     System.out.println("La conversion de " + cantidad + " " + coin_origen.getCode() + " a " + coin_destino.getCode() + " es: " + conversion);
   }
