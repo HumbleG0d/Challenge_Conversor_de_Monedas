@@ -8,4 +8,4 @@ El objetivo de este reto es crear un conversor de monedas que convierta el valor
 2. El programa mostrara el resultado de la conversión.
 
 ## Ejemplo
-![Ejemplo](Conversor_Monedas\assets\Ejemplo.png)
+![Ejemplo](https://github.com/HumbleG0d/Challenge_Conversor_de_Monedas/blob/main/Conversor_Monedas/assets/Ejemplo.png)
